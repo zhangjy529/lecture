@@ -1,12 +1,12 @@
 /* Represent a list of stuff, where all the "list" work is delegated
  * to a naked recursive data structure. */
 
-public class SList<Blorp>{
+public class SList<Item> implements List61B<Item>{
 	public class Node {
-		public Blorp item;     /* Equivalent of first */
+		public Item item;     /* Equivalent of first */
 		public Node next; /* Equivalent of rest */
 
-		public Node(Blorp i, Node h) {
+		public Node(Item i, Node h) {
 			item = i;
 			next = h;		
 		}
@@ -21,14 +21,14 @@ public class SList<Blorp>{
 		sentinel = new Node(null, null);
 	}
 
-	public SList(Blorp x) {
+	public SList(Item x) {
 		size = 1;
 		sentinel = new Node(null, null);
 		sentinel.next = new Node(x, null);
 	}
 
 	/** Adds an item of the front. */
-	public void insertFront(Blorp x) {
+	public void insertFront(Item x) {
 		Node oldFrontNode = sentinel.next;
 		Node newNode = new Node(x, oldFrontNode);
 		sentinel.next = newNode;
@@ -36,12 +36,12 @@ public class SList<Blorp>{
 	}
 
 	/** Gets the front item of the list. */
-	public Blorp getFront() {
+	public Item getFront() {
 		return sentinel.next.item;
 	}
 
 	/** Puts an item at the back of the list. */
-	public void insertBack(Blorp x) {
+	public void insertBack(Item x) {
 		size += 1;
 
 		Node p = sentinel;
@@ -66,13 +66,13 @@ public class SList<Blorp>{
 	}
 
 	/** Returns last item */
-	public Blorp getBack() {
+	public Item getBack() {
 		Node back = getBackNode();
 		return back.item;
 	}
 
 	/** Deletes and returns last item. */
-	public Blorp deleteBack() {
+	public Item deleteBack() {
 		Node back = getBackNode();
 		if (back == sentinel) {
 			return null;
@@ -92,7 +92,7 @@ public class SList<Blorp>{
 	}
 
 	/** Gets the positionth item of the list. */
-	public Blorp get(int position) {
+	public Item get(int position) {
 		if (position == 0) {
 			return getFront();
 		}
@@ -107,7 +107,7 @@ public class SList<Blorp>{
 
     /** Inserts item into given position.
       * Code from discussion #3 */
-	public void insert(Blorp item, int position) {
+	public void insert(Item item, int position) {
 		if (sentinel.next == null || position == 0) {
 			insertFront(item);
 			return;
@@ -124,5 +124,10 @@ public class SList<Blorp>{
 	}	
 
 	/** TODO: Add a print method that overrides List61B's inefficient print method. */
+	/**
+	@Override
+	public void print(){
+		System.out.println(sentinel.next.item);
+	} */
 
 } 

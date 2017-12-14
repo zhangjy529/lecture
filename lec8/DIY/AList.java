@@ -4,7 +4,7 @@
 
 /* The next item ALWAYS goes in the size postion */
 
-public class AList<Item>{
+public class AList<Item> implements  List61B<Item>{
 	/* the stored integers */
 	private Item[] items;
 	private int size;
@@ -26,6 +26,7 @@ public class AList<Item>{
     }
 
     /** Inserts X into the back of the list. */
+    @Override
     public void insertBack(Item x) {    	
     	if (size == items.length) {
     		resize(size * RFACTOR);
@@ -36,16 +37,19 @@ public class AList<Item>{
     }
 
     /** Returns the item from the back of the list. */
+    @Override
     public Item getBack() {
     	int lastActualItemIndex = size - 1;
     	return items[lastActualItemIndex];
     }
     /** Gets the ith item in the list (0 is the front). */
+    @Override
     public Item get(int i) {
         return items[i];
     }
 
     /** Returns the number of items in the list. */
+    @Override
     public int size() {
         return size;        
     }
@@ -63,6 +67,7 @@ public class AList<Item>{
 
     /** Inserts item into given position.
       * Code from discussion #3 */
+    @Override
     public void insert(Item x, int position) {
         Item[] newItems = (Item[]) new Object[items.length + 1];
 
@@ -74,11 +79,13 @@ public class AList<Item>{
     }
 
     /** Inserts an item at the front. */
+    @Override
     public void insertFront(Item x) {
         insert(x, 0);
     }
 
     /** Gets an item from the front. */
+    @Override
     public Item getFront() {
         return get(0);
     }
