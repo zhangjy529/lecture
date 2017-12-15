@@ -9,7 +9,6 @@ public class VengefulSList<Item> extends SList<Item>{
 	}
 
 	@Override
-
 	public Item deleteBack(){
 		Item oldBack = super.deleteBack();
 		deleteItems.insertBack(oldBack);

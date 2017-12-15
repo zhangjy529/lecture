@@ -1,6 +1,6 @@
 public class Dog {
     private String name;
-    private int size;
+    public int size;
 
     public Dog(String n, int s) {
         name = n;

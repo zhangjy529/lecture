@@ -1,6 +1,6 @@
 /* SList, but with additional rotateRight operation. */
 public class RotatingSList<Item> extends SList<Item> {
-
+//Rotate has all the instances and static variables, methods and nested classes, but constructors are not inherited
 	/** To do: Implement RotatingSList such that code compiles and outputs correct result. */
 	public void rotateRight(){
 		Item oldBack=deleteBack();
